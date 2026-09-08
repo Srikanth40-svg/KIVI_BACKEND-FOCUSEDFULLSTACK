@@ -1,0 +1,173 @@
+{
+  "seeded": {
+    "description": "The committed seed replayed through the real learning policy. This is the state a reviewer sees after `make seed`, so most application cases run against it."
+  },
+  "empty": {
+    "description": "No memories at all. Used for learning cases (so what gets learned is attributable to the case's own observations) and for the no-memory application cases.",
+    "from_empty": true
+  },
+  "seeded_ambiguous_kiwi": {
+    "description": "Seed plus a SECOND confirmed memory that also answers to the sound 'kiwi' \u2014 a client called Kiwee alongside the product Kivi. Two equally good answers for one span is genuine ambiguity, and the system should abstain and say so rather than pick the marginally higher score (taxonomy N12).",
+    "manual_memories": [
+      {
+        "canonical_form": "Kiwee",
+        "word_type": "org",
+        "gloss": "a client, unrelated to the Kivi product",
+        "observed_forms": [
+          "kiwi"
+        ],
+        "excerpt": "added so that two memories compete for one sound"
+      }
+    ]
+  },
+  "seeded_kivi_deleted": {
+    "description": "Seed, then the Kivi memory is deleted by the user. Deletion must take effect immediately: the word must stop being corrected (taxonomy N9).",
+    "post": [
+      {
+        "op": "delete",
+        "canonical_form": "Kivi"
+      }
+    ]
+  },
+  "seeded_sumeet_superseded": {
+    "description": "Seed, then 'Sumeet' is superseded by 'Sumit' \u2014 the person changed their mind about their own spelling. The new form must win, the old form must now itself be corrected, and the old memory must remain inspectable (taxonomy N10, brief section 13).",
+    "post": [
+      {
+        "op": "supersede",
+        "canonical_form": "Sumeet",
+        "new_canonical_form": "Sumit"
+      }
+    ]
+  },
+  "seeded_kivi_candidate": {
+    "description": "Seed, then the Kivi memory is demoted to candidate. Candidate memories are visible but inert: weak evidence must not change text (taxonomy N11).",
+    "post": [
+      {
+        "op": "demote",
+        "canonical_form": "Kivi"
+      }
+    ]
+  },
+  "holdout_persona": {
+    "description": "A DIFFERENT person's vocabulary, taught from scratch by its own observations. None of these words, wrong forms or contexts appear in the seed or in the dev split, so this scenario detects tuning to the development data.",
+    "from_empty": true,
+    "setup": [
+      {
+        "asr_text": "ask prateek to check the zorvex deployment",
+        "formatted_text": "Ask Prateek to check the Zorvex deployment.",
+        "user_edited_text": "Ask Prathik to check the Zorvex deployment.",
+        "app_context": "Slack - #zorvex-eng"
+      },
+      {
+        "formatted_text": "Zorvex is the new inference gateway.",
+        "app_context": "Notion - Architecture"
+      },
+      {
+        "formatted_text": "We are moving Zorvex to the new cluster.",
+        "app_context": "Slack - #zorvex-eng"
+      },
+      {
+        "formatted_text": "Zorvex latency dropped after the rollout.",
+        "app_context": "Notion - Metrics"
+      },
+      {
+        "formatted_text": "The Zorvex dashboard is finally usable.",
+        "app_context": "Slack - #zorvex-eng"
+      },
+      {
+        "asr_text": "neelima is presenting the retrieval benchmark",
+        "formatted_text": "Neelima is presenting the retrieval benchmark.",
+        "user_edited_text": "Nilima is presenting the retrieval benchmark.",
+        "app_context": "Notion - Team"
+      },
+      {
+        "asr_text": "deploy it on versell instead of the old host",
+        "formatted_text": "Deploy it on Versell instead of the old host.",
+        "user_edited_text": "Deploy it on Vercel instead of the old host.",
+        "app_context": "VS Code - zorvex/deploy.md"
+      },
+      {
+        "asr_text": "the tensor flow model needs retraining",
+        "formatted_text": "The Tensor Flow model needs retraining.",
+        "user_edited_text": "The TensorFlow model needs retraining.",
+        "app_context": "VS Code - zorvex/train.py"
+      },
+      {
+        "asr_text": "use the colour palette from the brand guide",
+        "formatted_text": "Use the colour palette from the brand guide.",
+        "user_edited_text": "Use the color palette from the brand guide.",
+        "app_context": "Figma - Brand"
+      },
+      {
+        "asr_text": "the bombay team is joining the review",
+        "formatted_text": "The Bombay team is joining the review.",
+        "user_edited_text": "The Mumbai team is joining the review.",
+        "app_context": "Slack - #general"
+      },
+      {
+        "asr_text": "dm at nilima underscore r the final numbers",
+        "formatted_text": "DM at Nilima underscore R the final numbers.",
+        "user_edited_text": "DM @nilima_r the final numbers.",
+        "app_context": "Slack - #zorvex-eng"
+      },
+      {
+        "asr_text": "send the deck to o k r review",
+        "formatted_text": "Send the deck to O K R review.",
+        "user_edited_text": "Send the deck to OKR review.",
+        "app_context": "Gmail - Compose"
+      },
+      {
+        "formatted_text": "Our client is called Amber Rail and they want the migration finished.",
+        "app_context": "Gmail - Compose"
+      },
+      {
+        "formatted_text": "Aarav walked through the migration plan.",
+        "app_context": "Slack - #zorvex-eng"
+      },
+      {
+        "formatted_text": "Aarav is reviewing the schema change.",
+        "app_context": "Slack - #zorvex-eng"
+      },
+      {
+        "formatted_text": "I owe Aarav a reply about the retry logic.",
+        "app_context": "Slack - #zorvex-eng"
+      },
+      {
+        "formatted_text": "Aarav found the bug in the batching code.",
+        "app_context": "Slack - #zorvex-eng"
+      },
+      {
+        "formatted_text": "Amber Rail confirmed the contract this morning.",
+        "app_context": "Gmail - Compose"
+      },
+      {
+        "formatted_text": "Amber Rail wants the migration finished by June.",
+        "app_context": "Gmail - Compose"
+      }
+    ]
+  },
+  "holdout_amber_deleted": {
+    "description": "The holdout persona, then their 'Amber Rail' memory is deleted. Tests that deletion works on vocabulary the system was never tuned against.",
+    "from_empty": true,
+    "setup": [
+      {
+        "formatted_text": "Our client is called Amber Rail and they want the migration finished.",
+        "app_context": "Gmail - Compose"
+      },
+      {
+        "formatted_text": "Amber Rail confirmed the contract this morning.",
+        "app_context": "Gmail - Compose"
+      },
+      {
+        "formatted_text": "Amber Rail wants the migration finished by June.",
+        "app_context": "Gmail - Compose"
+      }
+    ],
+    "post": [
+      {
+        "op": "delete",
+        "canonical_form": "Amber Rail"
+      }
+    ]
+  }
+}

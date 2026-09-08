@@ -1,0 +1,1537 @@
+{
+  "runs": [
+    {
+      "split": "dev",
+      "composition": {
+        "total": 142,
+        "by_kind": {
+          "apply": 118,
+          "learn": 19,
+          "state": 5
+        },
+        "by_expected_intervention": {
+          "correct": 57,
+          "none": 61
+        },
+        "by_category": {
+          "A10_morphology_preserved": 4,
+          "A11_spelling_preference": 4,
+          "A12_transliteration_preference": 3,
+          "A1_indic_phonetic_variation": 6,
+          "A1_product_heard_as_ordinary_word": 12,
+          "A2_person_romanisation_preference": 10,
+          "A4_brand_orthography": 4,
+          "A5_personal_acronym": 3,
+          "A6_jargon_multitoken_error": 6,
+          "A9_handle_identifier": 2,
+          "L_E1_spelling_instruction": 2,
+          "L_E2_user_edit": 3,
+          "L_E4_repetition_accumulates": 3,
+          "L_E6_naming_frame_candidate_only": 2,
+          "L_E7_irrealis_refused": 2,
+          "L_casing_needs_context": 1,
+          "L_famous_name_not_learned": 2,
+          "L_in_phrase_not_extracted": 1,
+          "L_nothing_to_learn": 1,
+          "L_ordinary_word_not_learned": 1,
+          "L_preference_detected": 1,
+          "N10_superseded_memory_updated": 3,
+          "N11_candidate_memory_inert": 2,
+          "N12_ambiguous_competing_memories": 3,
+          "N13_no_relevant_memory": 12,
+          "N1_homophone_ordinary_sense": 8,
+          "N2_product_vs_generic_word": 6,
+          "N4_different_real_person": 4,
+          "N5_coincidental_phonetic_match": 8,
+          "N7_metalinguistic_mention": 4,
+          "N8_already_canonical": 8,
+          "N9_deleted_memory_inert": 3,
+          "N_empty_memory_no_intervention": 3,
+          "S_deletion_recorded": 1,
+          "S_reset_is_clean": 1,
+          "S_seed_is_deterministic": 1,
+          "S_status_gates_application": 1,
+          "S_supersession_recorded": 1
+        },
+        "by_scenario": {
+          "empty": 23,
+          "seeded": 105,
+          "seeded_ambiguous_kiwi": 3,
+          "seeded_kivi_candidate": 3,
+          "seeded_kivi_deleted": 4,
+          "seeded_sumeet_superseded": 4
+        }
+      },
+      "systems": {
+        "kivi": {
+          "metrics": {
+            "application": {
+              "cases": 118,
+              "correct_intervention": 55,
+              "false_intervention": 0,
+              "missed_intervention": 2,
+              "correct_silence": 61,
+              "acted_but_wrong_text": 0,
+              "correction_precision": 1.0,
+              "correction_recall": 0.9649,
+              "false_intervention_rate": 0.0,
+              "missed_intervention_rate": 0.0351,
+              "exact_text_accuracy": 0.9831
+            },
+            "learning": {
+              "assertions": 22,
+              "correct": 22,
+              "wrong_status": 0,
+              "missing": 0,
+              "spurious": 0,
+              "memory_precision": 1.0,
+              "memory_recall": 1.0
+            },
+            "state_assertions": {
+              "passed": 5,
+              "failed": 0
+            },
+            "latency": {
+              "end_to_end_ms": {
+                "n": 118,
+                "mean": 163.316,
+                "p50": 5.648,
+                "p95": 1222.402,
+                "max": 3150.768
+              },
+              "retrieval_ms": {
+                "n": 118,
+                "mean": 4.512,
+                "p50": 4.666,
+                "p95": 7.408,
+                "max": 10.609
+              }
+            },
+            "model_usage": {
+              "calls": 20,
+              "tokens_in": 4282,
+              "tokens_out": 1725,
+              "cost_inr": 0.2516,
+              "errors": [
+                "model returned non-JSON content: {\"verdicts\": [\n  {\n    \"id\": 0,\n    \"apply\": false\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  "
+              ],
+              "error_count": 1
+            },
+            "by_category": {
+              "A10_morphology_preserved": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A11_spelling_preference": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A12_transliteration_preference": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A1_indic_phonetic_variation": {
+                "passed": 6,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A1_product_heard_as_ordinary_word": {
+                "passed": 11,
+                "failed": 1,
+                "pass_rate": 0.9167
+              },
+              "A2_person_romanisation_preference": {
+                "passed": 10,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A4_brand_orthography": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A5_personal_acronym": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A6_jargon_multitoken_error": {
+                "passed": 5,
+                "failed": 1,
+                "pass_rate": 0.8333
+              },
+              "A9_handle_identifier": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_E1_spelling_instruction": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_E2_user_edit": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_E4_repetition_accumulates": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_E6_naming_frame_candidate_only": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_E7_irrealis_refused": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_casing_needs_context": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_famous_name_not_learned": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_in_phrase_not_extracted": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_nothing_to_learn": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_ordinary_word_not_learned": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_preference_detected": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N10_superseded_memory_updated": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N11_candidate_memory_inert": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N12_ambiguous_competing_memories": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N13_no_relevant_memory": {
+                "passed": 12,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N1_homophone_ordinary_sense": {
+                "passed": 8,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N2_product_vs_generic_word": {
+                "passed": 6,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N4_different_real_person": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N5_coincidental_phonetic_match": {
+                "passed": 8,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N7_metalinguistic_mention": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N8_already_canonical": {
+                "passed": 8,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N9_deleted_memory_inert": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N_empty_memory_no_intervention": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "S_deletion_recorded": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "S_reset_is_clean": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "S_seed_is_deterministic": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "S_status_gates_application": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "S_supersession_recorded": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              }
+            }
+          },
+          "wall_clock_s": 20.109,
+          "cases_run": 142,
+          "passed": 140,
+          "failed": 2
+        },
+        "exact": {
+          "metrics": {
+            "application": {
+              "cases": 118,
+              "correct_intervention": 42,
+              "false_intervention": 24,
+              "missed_intervention": 15,
+              "correct_silence": 37,
+              "acted_but_wrong_text": 0,
+              "correction_precision": 0.6364,
+              "correction_recall": 0.7368,
+              "false_intervention_rate": 0.3934,
+              "missed_intervention_rate": 0.2632,
+              "exact_text_accuracy": 0.6695
+            },
+            "learning": {
+              "assertions": 0,
+              "correct": 0,
+              "wrong_status": 0,
+              "missing": 0,
+              "spurious": 0,
+              "memory_precision": null,
+              "memory_recall": null
+            },
+            "state_assertions": {
+              "passed": 0,
+              "failed": 0
+            },
+            "latency": {
+              "end_to_end_ms": {
+                "n": 118,
+                "mean": 0.381,
+                "p50": 0.374,
+                "p95": 0.453,
+                "max": 0.574
+              },
+              "retrieval_ms": {
+                "n": 0,
+                "mean": null,
+                "p50": null,
+                "p95": null,
+                "max": null
+              }
+            },
+            "model_usage": {
+              "calls": 0,
+              "tokens_in": 0,
+              "tokens_out": 0,
+              "cost_inr": 0.0,
+              "errors": [],
+              "error_count": 0
+            },
+            "by_category": {
+              "A10_morphology_preserved": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A11_spelling_preference": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A12_transliteration_preference": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A1_indic_phonetic_variation": {
+                "passed": 6,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A1_product_heard_as_ordinary_word": {
+                "passed": 12,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A2_person_romanisation_preference": {
+                "passed": 10,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A4_brand_orthography": {
+                "passed": 0,
+                "failed": 4,
+                "pass_rate": 0.0
+              },
+              "A5_personal_acronym": {
+                "passed": 0,
+                "failed": 3,
+                "pass_rate": 0.0
+              },
+              "A6_jargon_multitoken_error": {
+                "passed": 0,
+                "failed": 6,
+                "pass_rate": 0.0
+              },
+              "A9_handle_identifier": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "N10_superseded_memory_updated": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N11_candidate_memory_inert": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N12_ambiguous_competing_memories": {
+                "passed": 1,
+                "failed": 2,
+                "pass_rate": 0.3333
+              },
+              "N13_no_relevant_memory": {
+                "passed": 12,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N1_homophone_ordinary_sense": {
+                "passed": 0,
+                "failed": 8,
+                "pass_rate": 0.0
+              },
+              "N2_product_vs_generic_word": {
+                "passed": 0,
+                "failed": 6,
+                "pass_rate": 0.0
+              },
+              "N4_different_real_person": {
+                "passed": 0,
+                "failed": 4,
+                "pass_rate": 0.0
+              },
+              "N5_coincidental_phonetic_match": {
+                "passed": 8,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N7_metalinguistic_mention": {
+                "passed": 0,
+                "failed": 4,
+                "pass_rate": 0.0
+              },
+              "N8_already_canonical": {
+                "passed": 8,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N9_deleted_memory_inert": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N_empty_memory_no_intervention": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              }
+            }
+          },
+          "wall_clock_s": 0.563,
+          "cases_run": 118,
+          "passed": 79,
+          "failed": 39
+        },
+        "fuzzy": {
+          "metrics": {
+            "application": {
+              "cases": 118,
+              "correct_intervention": 16,
+              "false_intervention": 46,
+              "missed_intervention": 1,
+              "correct_silence": 15,
+              "acted_but_wrong_text": 40,
+              "correction_precision": 0.1569,
+              "correction_recall": 0.2807,
+              "false_intervention_rate": 0.7541,
+              "missed_intervention_rate": 0.0175,
+              "exact_text_accuracy": 0.2627
+            },
+            "learning": {
+              "assertions": 0,
+              "correct": 0,
+              "wrong_status": 0,
+              "missing": 0,
+              "spurious": 0,
+              "memory_precision": null,
+              "memory_recall": null
+            },
+            "state_assertions": {
+              "passed": 0,
+              "failed": 0
+            },
+            "latency": {
+              "end_to_end_ms": {
+                "n": 118,
+                "mean": 2.979,
+                "p50": 2.971,
+                "p95": 4.37,
+                "max": 5.808
+              },
+              "retrieval_ms": {
+                "n": 0,
+                "mean": null,
+                "p50": null,
+                "p95": null,
+                "max": null
+              }
+            },
+            "model_usage": {
+              "calls": 0,
+              "tokens_in": 0,
+              "tokens_out": 0,
+              "cost_inr": 0.0,
+              "errors": [],
+              "error_count": 0
+            },
+            "by_category": {
+              "A10_morphology_preserved": {
+                "passed": 1,
+                "failed": 3,
+                "pass_rate": 0.25
+              },
+              "A11_spelling_preference": {
+                "passed": 1,
+                "failed": 3,
+                "pass_rate": 0.25
+              },
+              "A12_transliteration_preference": {
+                "passed": 2,
+                "failed": 1,
+                "pass_rate": 0.6667
+              },
+              "A1_indic_phonetic_variation": {
+                "passed": 2,
+                "failed": 4,
+                "pass_rate": 0.3333
+              },
+              "A1_product_heard_as_ordinary_word": {
+                "passed": 3,
+                "failed": 9,
+                "pass_rate": 0.25
+              },
+              "A2_person_romanisation_preference": {
+                "passed": 6,
+                "failed": 4,
+                "pass_rate": 0.6
+              },
+              "A4_brand_orthography": {
+                "passed": 0,
+                "failed": 4,
+                "pass_rate": 0.0
+              },
+              "A5_personal_acronym": {
+                "passed": 0,
+                "failed": 3,
+                "pass_rate": 0.0
+              },
+              "A6_jargon_multitoken_error": {
+                "passed": 0,
+                "failed": 6,
+                "pass_rate": 0.0
+              },
+              "A9_handle_identifier": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "N10_superseded_memory_updated": {
+                "passed": 2,
+                "failed": 1,
+                "pass_rate": 0.6667
+              },
+              "N11_candidate_memory_inert": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "N12_ambiguous_competing_memories": {
+                "passed": 0,
+                "failed": 3,
+                "pass_rate": 0.0
+              },
+              "N13_no_relevant_memory": {
+                "passed": 6,
+                "failed": 6,
+                "pass_rate": 0.5
+              },
+              "N1_homophone_ordinary_sense": {
+                "passed": 0,
+                "failed": 8,
+                "pass_rate": 0.0
+              },
+              "N2_product_vs_generic_word": {
+                "passed": 0,
+                "failed": 6,
+                "pass_rate": 0.0
+              },
+              "N4_different_real_person": {
+                "passed": 0,
+                "failed": 4,
+                "pass_rate": 0.0
+              },
+              "N5_coincidental_phonetic_match": {
+                "passed": 3,
+                "failed": 5,
+                "pass_rate": 0.375
+              },
+              "N7_metalinguistic_mention": {
+                "passed": 0,
+                "failed": 4,
+                "pass_rate": 0.0
+              },
+              "N8_already_canonical": {
+                "passed": 2,
+                "failed": 6,
+                "pass_rate": 0.25
+              },
+              "N9_deleted_memory_inert": {
+                "passed": 0,
+                "failed": 3,
+                "pass_rate": 0.0
+              },
+              "N_empty_memory_no_intervention": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              }
+            }
+          },
+          "wall_clock_s": 0.884,
+          "cases_run": 118,
+          "passed": 31,
+          "failed": 87
+        },
+        "llm_only": {
+          "metrics": {
+            "application": {
+              "cases": 118,
+              "correct_intervention": 9,
+              "false_intervention": 1,
+              "missed_intervention": 45,
+              "correct_silence": 60,
+              "acted_but_wrong_text": 3,
+              "correction_precision": 0.6923,
+              "correction_recall": 0.1579,
+              "false_intervention_rate": 0.0164,
+              "missed_intervention_rate": 0.7895,
+              "exact_text_accuracy": 0.5847
+            },
+            "learning": {
+              "assertions": 0,
+              "correct": 0,
+              "wrong_status": 0,
+              "missing": 0,
+              "spurious": 0,
+              "memory_precision": null,
+              "memory_recall": null
+            },
+            "state_assertions": {
+              "passed": 0,
+              "failed": 0
+            },
+            "latency": {
+              "end_to_end_ms": {
+                "n": 118,
+                "mean": 411.165,
+                "p50": 256.966,
+                "p95": 980.583,
+                "max": 1321.067
+              },
+              "retrieval_ms": {
+                "n": 0,
+                "mean": null,
+                "p50": null,
+                "p95": null,
+                "max": null
+              }
+            },
+            "model_usage": {
+              "calls": 94,
+              "tokens_in": 8780,
+              "tokens_out": 978,
+              "cost_inr": 0.3287,
+              "errors": [
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_0f008c9f-81d5-4b25-82b2-c63c8fff0d7c\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_29d7dc5b-cde7-4118-a566-fd6b4291910a\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_609d364e-a969-4699-bbf3-fc1cf9b0e97c\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_521ebf5e-69a2-4257-9c4a-46b818fe2bfb\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_ee4d39f0-509a-4d84-88c5-e0e0ee01f556\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_52e8d118-992c-4039-a559-101978f1d485\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_7e653129-bdd2-4386-83d9-9f1b6ac98639\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_34df5462-8e58-4d5c-acb3-ad5b62becd2c\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_3e6e66cc-bf05-4937-bfc9-ada42048637c\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_8825435a-90bc-414e-ad14-cac13f80bd57\"}}"
+              ],
+              "error_count": 24
+            },
+            "by_category": {
+              "A10_morphology_preserved": {
+                "passed": 0,
+                "failed": 4,
+                "pass_rate": 0.0
+              },
+              "A11_spelling_preference": {
+                "passed": 2,
+                "failed": 2,
+                "pass_rate": 0.5
+              },
+              "A12_transliteration_preference": {
+                "passed": 0,
+                "failed": 3,
+                "pass_rate": 0.0
+              },
+              "A1_indic_phonetic_variation": {
+                "passed": 1,
+                "failed": 5,
+                "pass_rate": 0.1667
+              },
+              "A1_product_heard_as_ordinary_word": {
+                "passed": 0,
+                "failed": 12,
+                "pass_rate": 0.0
+              },
+              "A2_person_romanisation_preference": {
+                "passed": 0,
+                "failed": 10,
+                "pass_rate": 0.0
+              },
+              "A4_brand_orthography": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A5_personal_acronym": {
+                "passed": 1,
+                "failed": 2,
+                "pass_rate": 0.3333
+              },
+              "A6_jargon_multitoken_error": {
+                "passed": 1,
+                "failed": 5,
+                "pass_rate": 0.1667
+              },
+              "A9_handle_identifier": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "N10_superseded_memory_updated": {
+                "passed": 1,
+                "failed": 2,
+                "pass_rate": 0.3333
+              },
+              "N11_candidate_memory_inert": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N12_ambiguous_competing_memories": {
+                "passed": 2,
+                "failed": 1,
+                "pass_rate": 0.6667
+              },
+              "N13_no_relevant_memory": {
+                "passed": 12,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N1_homophone_ordinary_sense": {
+                "passed": 8,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N2_product_vs_generic_word": {
+                "passed": 6,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N4_different_real_person": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N5_coincidental_phonetic_match": {
+                "passed": 8,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N7_metalinguistic_mention": {
+                "passed": 3,
+                "failed": 1,
+                "pass_rate": 0.75
+              },
+              "N8_already_canonical": {
+                "passed": 8,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N9_deleted_memory_inert": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N_empty_memory_no_intervention": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              }
+            }
+          },
+          "wall_clock_s": 49.169,
+          "cases_run": 118,
+          "passed": 69,
+          "failed": 49
+        }
+      },
+      "storage_after_run": {
+        "file_bytes": 172032,
+        "page_bytes": 172032,
+        "page_count": 42,
+        "page_size": 4096,
+        "row_counts": {
+          "eval_results": 0,
+          "eval_runs": 0,
+          "decision_candidates": 0,
+          "decisions": 0,
+          "learning_decisions": 41,
+          "memory_events": 77,
+          "memory_evidence": 37,
+          "memory_variants": 31,
+          "word_memories": 19,
+          "interactions": 26
+        },
+        "measured_on": "the seeded vocabulary after VACUUM: one user's memory plus its full evidence, audit and learning-decision history"
+      },
+      "environment": {
+        "python": "3.11.15",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "git_sha": "1e5f8759a6ecd9c2205d3b23cbcd5b869a93dcc5",
+        "config": {
+          "db_path": "C:\\Users\\srika\\Downloads\\Sarvam\\Sarvam\\kivi.db",
+          "apply_mode": "deterministic",
+          "llm_configured": true,
+          "llm_model": "sarvam-105b",
+          "use_llm_adjudicator": true
+        },
+        "thresholds": {
+          "w_manual_entry": 1.0,
+          "w_user_spelling": 0.95,
+          "w_user_edit": 0.9,
+          "w_repetition_step": 0.18,
+          "w_repetition_cap": 0.85,
+          "w_naming_frame": 0.4,
+          "w_app_context": 0.05,
+          "w_app_context_cap": 0.1,
+          "confirm_at": 0.7,
+          "candidate_floor": 0.3,
+          "max_span_tokens": 4,
+          "fuzzy_min_lexical": 0.72,
+          "phonetic_min_lexical": 0.45,
+          "ambiguity_margin": 0.08,
+          "ctx_required_default": 0.2,
+          "ctx_required_ordinary": 0.55,
+          "ctx_required_ordinary_common": 0.75,
+          "ctx_required_orthographic": 0.0,
+          "ctx_required_fuzzy": 0.45,
+          "ctx_common_rank": 5000,
+          "ctx_profile_stopword_rank": 300,
+          "ctx_uncertain_band": 0.15
+        },
+        "llm_available": true,
+        "started_at": "2026-09-08T17:25:43Z"
+      }
+    },
+    {
+      "split": "holdout",
+      "composition": {
+        "total": 40,
+        "by_kind": {
+          "apply": 33,
+          "learn": 7
+        },
+        "by_expected_intervention": {
+          "correct": 18,
+          "none": 15
+        },
+        "by_category": {
+          "A11_spelling_preference": 3,
+          "A12_transliteration_preference": 2,
+          "A2_person_romanisation_preference": 5,
+          "A4_brand_orthography": 2,
+          "A5_personal_acronym": 1,
+          "A6_jargon_heard_as_ordinary": 2,
+          "A7_multiword_entity": 2,
+          "A9_handle_identifier": 1,
+          "L_E2_user_edit": 1,
+          "L_E4_repetition_accumulates": 2,
+          "L_E6_naming_frame_candidate_only": 1,
+          "L_E7_irrealis_refused": 1,
+          "L_famous_name_not_learned": 1,
+          "L_ordinary_word_not_learned": 1,
+          "N13_no_relevant_memory": 6,
+          "N3_common_word_collision": 4,
+          "N7_metalinguistic_mention": 1,
+          "N8_already_canonical": 2,
+          "N9_deleted_memory_inert": 2
+        },
+        "by_scenario": {
+          "empty": 7,
+          "holdout_amber_deleted": 2,
+          "holdout_persona": 31
+        }
+      },
+      "systems": {
+        "kivi": {
+          "metrics": {
+            "application": {
+              "cases": 33,
+              "correct_intervention": 16,
+              "false_intervention": 0,
+              "missed_intervention": 2,
+              "correct_silence": 15,
+              "acted_but_wrong_text": 0,
+              "correction_precision": 1.0,
+              "correction_recall": 0.8889,
+              "false_intervention_rate": 0.0,
+              "missed_intervention_rate": 0.1111,
+              "exact_text_accuracy": 0.9394
+            },
+            "learning": {
+              "assertions": 8,
+              "correct": 8,
+              "wrong_status": 0,
+              "missing": 0,
+              "spurious": 0,
+              "memory_precision": 1.0,
+              "memory_recall": 1.0
+            },
+            "state_assertions": {
+              "passed": 0,
+              "failed": 0
+            },
+            "latency": {
+              "end_to_end_ms": {
+                "n": 33,
+                "mean": 269.286,
+                "p50": 6.485,
+                "p95": 1343.988,
+                "max": 1413.784
+              },
+              "retrieval_ms": {
+                "n": 33,
+                "mean": 4.596,
+                "p50": 4.398,
+                "p95": 7.03,
+                "max": 7.656
+              }
+            },
+            "model_usage": {
+              "calls": 4,
+              "tokens_in": 834,
+              "tokens_out": 227,
+              "cost_inr": 0.041,
+              "errors": [
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_114ab86f-3624-4b63-8385-ce70fa4a47c3\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_7847a1c2-5e4a-468d-8bb4-bf8e82671155\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_c069c090-40f1-475a-ba02-1c098d72731d\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_124d1c1c-f4f1-43f4-8139-0e983afaea8b\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_52c6179e-5f35-43f2-b547-1d24c2193854\"}}"
+              ],
+              "error_count": 5
+            },
+            "by_category": {
+              "A11_spelling_preference": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A12_transliteration_preference": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A2_person_romanisation_preference": {
+                "passed": 5,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A4_brand_orthography": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A5_personal_acronym": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A6_jargon_heard_as_ordinary": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A7_multiword_entity": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "A9_handle_identifier": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_E2_user_edit": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_E4_repetition_accumulates": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_E6_naming_frame_candidate_only": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_E7_irrealis_refused": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_famous_name_not_learned": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "L_ordinary_word_not_learned": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N13_no_relevant_memory": {
+                "passed": 6,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N3_common_word_collision": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N7_metalinguistic_mention": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N8_already_canonical": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N9_deleted_memory_inert": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              }
+            }
+          },
+          "wall_clock_s": 9.015,
+          "cases_run": 40,
+          "passed": 38,
+          "failed": 2
+        },
+        "exact": {
+          "metrics": {
+            "application": {
+              "cases": 33,
+              "correct_intervention": 12,
+              "false_intervention": 1,
+              "missed_intervention": 6,
+              "correct_silence": 14,
+              "acted_but_wrong_text": 0,
+              "correction_precision": 0.9231,
+              "correction_recall": 0.6667,
+              "false_intervention_rate": 0.0667,
+              "missed_intervention_rate": 0.3333,
+              "exact_text_accuracy": 0.7879
+            },
+            "learning": {
+              "assertions": 0,
+              "correct": 0,
+              "wrong_status": 0,
+              "missing": 0,
+              "spurious": 0,
+              "memory_precision": null,
+              "memory_recall": null
+            },
+            "state_assertions": {
+              "passed": 0,
+              "failed": 0
+            },
+            "latency": {
+              "end_to_end_ms": {
+                "n": 33,
+                "mean": 0.423,
+                "p50": 0.433,
+                "p95": 0.503,
+                "max": 0.584
+              },
+              "retrieval_ms": {
+                "n": 0,
+                "mean": null,
+                "p50": null,
+                "p95": null,
+                "max": null
+              }
+            },
+            "model_usage": {
+              "calls": 0,
+              "tokens_in": 0,
+              "tokens_out": 0,
+              "cost_inr": 0.0,
+              "errors": [],
+              "error_count": 0
+            },
+            "by_category": {
+              "A11_spelling_preference": {
+                "passed": 3,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A12_transliteration_preference": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A2_person_romanisation_preference": {
+                "passed": 5,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A4_brand_orthography": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "A5_personal_acronym": {
+                "passed": 0,
+                "failed": 1,
+                "pass_rate": 0.0
+              },
+              "A6_jargon_heard_as_ordinary": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A7_multiword_entity": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "A9_handle_identifier": {
+                "passed": 0,
+                "failed": 1,
+                "pass_rate": 0.0
+              },
+              "N13_no_relevant_memory": {
+                "passed": 6,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N3_common_word_collision": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N7_metalinguistic_mention": {
+                "passed": 0,
+                "failed": 1,
+                "pass_rate": 0.0
+              },
+              "N8_already_canonical": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N9_deleted_memory_inert": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              }
+            }
+          },
+          "wall_clock_s": 0.092,
+          "cases_run": 33,
+          "passed": 26,
+          "failed": 7
+        },
+        "fuzzy": {
+          "metrics": {
+            "application": {
+              "cases": 33,
+              "correct_intervention": 1,
+              "false_intervention": 11,
+              "missed_intervention": 0,
+              "correct_silence": 4,
+              "acted_but_wrong_text": 17,
+              "correction_precision": 0.0345,
+              "correction_recall": 0.0556,
+              "false_intervention_rate": 0.7333,
+              "missed_intervention_rate": 0.0,
+              "exact_text_accuracy": 0.1515
+            },
+            "learning": {
+              "assertions": 0,
+              "correct": 0,
+              "wrong_status": 0,
+              "missing": 0,
+              "spurious": 0,
+              "memory_precision": null,
+              "memory_recall": null
+            },
+            "state_assertions": {
+              "passed": 0,
+              "failed": 0
+            },
+            "latency": {
+              "end_to_end_ms": {
+                "n": 33,
+                "mean": 4.851,
+                "p50": 4.906,
+                "p95": 7.645,
+                "max": 7.915
+              },
+              "retrieval_ms": {
+                "n": 0,
+                "mean": null,
+                "p50": null,
+                "p95": null,
+                "max": null
+              }
+            },
+            "model_usage": {
+              "calls": 0,
+              "tokens_in": 0,
+              "tokens_out": 0,
+              "cost_inr": 0.0,
+              "errors": [],
+              "error_count": 0
+            },
+            "by_category": {
+              "A11_spelling_preference": {
+                "passed": 0,
+                "failed": 3,
+                "pass_rate": 0.0
+              },
+              "A12_transliteration_preference": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "A2_person_romanisation_preference": {
+                "passed": 0,
+                "failed": 5,
+                "pass_rate": 0.0
+              },
+              "A4_brand_orthography": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "A5_personal_acronym": {
+                "passed": 0,
+                "failed": 1,
+                "pass_rate": 0.0
+              },
+              "A6_jargon_heard_as_ordinary": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "A7_multiword_entity": {
+                "passed": 1,
+                "failed": 1,
+                "pass_rate": 0.5
+              },
+              "A9_handle_identifier": {
+                "passed": 0,
+                "failed": 1,
+                "pass_rate": 0.0
+              },
+              "N13_no_relevant_memory": {
+                "passed": 1,
+                "failed": 5,
+                "pass_rate": 0.1667
+              },
+              "N3_common_word_collision": {
+                "passed": 1,
+                "failed": 3,
+                "pass_rate": 0.25
+              },
+              "N7_metalinguistic_mention": {
+                "passed": 0,
+                "failed": 1,
+                "pass_rate": 0.0
+              },
+              "N8_already_canonical": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "N9_deleted_memory_inert": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              }
+            }
+          },
+          "wall_clock_s": 0.231,
+          "cases_run": 33,
+          "passed": 5,
+          "failed": 28
+        },
+        "llm_only": {
+          "metrics": {
+            "application": {
+              "cases": 33,
+              "correct_intervention": 6,
+              "false_intervention": 2,
+              "missed_intervention": 11,
+              "correct_silence": 13,
+              "acted_but_wrong_text": 1,
+              "correction_precision": 0.6667,
+              "correction_recall": 0.3333,
+              "false_intervention_rate": 0.1333,
+              "missed_intervention_rate": 0.6111,
+              "exact_text_accuracy": 0.5758
+            },
+            "learning": {
+              "assertions": 0,
+              "correct": 0,
+              "wrong_status": 0,
+              "missing": 0,
+              "spurious": 0,
+              "memory_precision": null,
+              "memory_recall": null
+            },
+            "state_assertions": {
+              "passed": 0,
+              "failed": 0
+            },
+            "latency": {
+              "end_to_end_ms": {
+                "n": 33,
+                "mean": 518.961,
+                "p50": 412.013,
+                "p95": 953.4,
+                "max": 1164.514
+              },
+              "retrieval_ms": {
+                "n": 0,
+                "mean": null,
+                "p50": null,
+                "p95": null,
+                "max": null
+              }
+            },
+            "model_usage": {
+              "calls": 31,
+              "tokens_in": 2882,
+              "tokens_out": 306,
+              "cost_inr": 0.1068,
+              "errors": [
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_bb74bc3b-9d16-440c-b87f-e6d668e9d4f0\"}}",
+                "HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded\",\"code\":\"rate_limit_exceeded_error\",\"request_id\":\"20260908_ecb36907-0515-4377-8af7-8741bd9968d0\"}}"
+              ],
+              "error_count": 2
+            },
+            "by_category": {
+              "A11_spelling_preference": {
+                "passed": 1,
+                "failed": 2,
+                "pass_rate": 0.3333
+              },
+              "A12_transliteration_preference": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "A2_person_romanisation_preference": {
+                "passed": 0,
+                "failed": 5,
+                "pass_rate": 0.0
+              },
+              "A4_brand_orthography": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A5_personal_acronym": {
+                "passed": 1,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A6_jargon_heard_as_ordinary": {
+                "passed": 0,
+                "failed": 2,
+                "pass_rate": 0.0
+              },
+              "A7_multiword_entity": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "A9_handle_identifier": {
+                "passed": 0,
+                "failed": 1,
+                "pass_rate": 0.0
+              },
+              "N13_no_relevant_memory": {
+                "passed": 6,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N3_common_word_collision": {
+                "passed": 4,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N7_metalinguistic_mention": {
+                "passed": 0,
+                "failed": 1,
+                "pass_rate": 0.0
+              },
+              "N8_already_canonical": {
+                "passed": 2,
+                "failed": 0,
+                "pass_rate": 1.0
+              },
+              "N9_deleted_memory_inert": {
+                "passed": 1,
+                "failed": 1,
+                "pass_rate": 0.5
+              }
+            }
+          },
+          "wall_clock_s": 17.229,
+          "cases_run": 33,
+          "passed": 19,
+          "failed": 14
+        }
+      },
+      "storage_after_run": {
+        "file_bytes": 172032,
+        "page_bytes": 172032,
+        "page_count": 42,
+        "page_size": 4096,
+        "row_counts": {
+          "eval_results": 0,
+          "eval_runs": 0,
+          "decision_candidates": 0,
+          "decisions": 0,
+          "learning_decisions": 41,
+          "memory_events": 77,
+          "memory_evidence": 37,
+          "memory_variants": 31,
+          "word_memories": 19,
+          "interactions": 26
+        },
+        "measured_on": "the seeded vocabulary after VACUUM: one user's memory plus its full evidence, audit and learning-decision history"
+      },
+      "environment": {
+        "python": "3.11.15",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "git_sha": "1e5f8759a6ecd9c2205d3b23cbcd5b869a93dcc5",
+        "config": {
+          "db_path": "C:\\Users\\srika\\Downloads\\Sarvam\\Sarvam\\kivi.db",
+          "apply_mode": "deterministic",
+          "llm_configured": true,
+          "llm_model": "sarvam-105b",
+          "use_llm_adjudicator": true
+        },
+        "thresholds": {
+          "w_manual_entry": 1.0,
+          "w_user_spelling": 0.95,
+          "w_user_edit": 0.9,
+          "w_repetition_step": 0.18,
+          "w_repetition_cap": 0.85,
+          "w_naming_frame": 0.4,
+          "w_app_context": 0.05,
+          "w_app_context_cap": 0.1,
+          "confirm_at": 0.7,
+          "candidate_floor": 0.3,
+          "max_span_tokens": 4,
+          "fuzzy_min_lexical": 0.72,
+          "phonetic_min_lexical": 0.45,
+          "ambiguity_margin": 0.08,
+          "ctx_required_default": 0.2,
+          "ctx_required_ordinary": 0.55,
+          "ctx_required_ordinary_common": 0.75,
+          "ctx_required_orthographic": 0.0,
+          "ctx_required_fuzzy": 0.45,
+          "ctx_common_rank": 5000,
+          "ctx_profile_stopword_rank": 300,
+          "ctx_uncertain_band": 0.15
+        },
+        "llm_available": true,
+        "started_at": "2026-09-08T17:25:43Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Kivi phonetic memory — runtime dependencies.
+# Deliberately small: the core system (learning, retrieval, context gating, application,
+# evaluation) uses only the Python standard library. Nothing here is needed to make a
+# correction happen; these are the HTTP layer, request validation, and the test runner.
+
+fastapi==0.115.6          # JSON API + automatic OpenAPI docs at /docs
+uvicorn==0.34.0           # ASGI server (single process, also serves the SPA)
+pydantic==2.10.4          # typed request/response models at the API boundary
+httpx==0.28.1             # HTTP client for the OPTIONAL Sarvam adjudicator
+python-dotenv==1.0.1      # loads .env so the reviewer sets one variable, not an export
+
+# dev / test
+pytest==8.3.4

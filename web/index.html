@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kivi · the words Kivi keeps</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">Kivi</span>
+    <span class="sub">phonetic memory</span>
+  </div>
+  <div class="status" id="status">connecting…</div>
+  <div class="topactions">
+    <button class="btn ghost" id="btn-seed" title="Replay the committed seed observations">Seed</button>
+    <button class="btn ghost" id="btn-reset" title="Clear all data, then replay the seed">Reset + reseed</button>
+    <button class="btn ghost" id="btn-wipe" title="Clear all data and leave memory empty">Wipe empty</button>
+    <a class="btn ghost" href="/docs" target="_blank" rel="noreferrer">API</a>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-view="journey">Guided journey</button>
+  <button class="tab" data-view="transcribe">Three stages</button>
+  <button class="tab" data-view="teach">Teach</button>
+  <button class="tab" data-view="memory">Memory</button>
+  <button class="tab" data-view="log">Why not learned</button>
+</nav>
+
+<main>
+
+  <!-- ───────────────────────── Guided journey ───────────────────────── -->
+  <section class="view active" id="view-journey">
+    <p class="lede">
+      Twelve steps, in order, each one a real API call against real database state.
+      Nothing here is scripted: the same buttons drive the same endpoints you can curl.
+    </p>
+    <div class="journey" id="journey"></div>
+  </section>
+
+  <!-- ───────────────────────── Three stages ───────────────────────── -->
+  <section class="view" id="view-transcribe">
+    <div class="split">
+      <div class="pane">
+        <h2>Give Kivi something to write</h2>
+        <label>Raw ASR output <span class="hint">stage 1 — an input; this system does not build ASR</span></label>
+        <textarea id="in-asr" rows="2" placeholder="ask aditya to review the sarvam kiwi service"></textarea>
+        <label>Formatted output <span class="hint">stage 2 — optional. Leave blank to use the stand-in formatter</span></label>
+        <textarea id="in-formatted" rows="2" placeholder="Ask Aditya to review the Sarvam Kiwi service."></textarea>
+        <label>Application context <span class="hint">the window title a real client would supply. Weak evidence only</span></label>
+        <input id="in-app" placeholder="Slack - #kivi-eng">
+        <div class="row">
+          <button class="btn primary" id="btn-run">Run all three stages</button>
+          <label class="check"><input type="checkbox" id="in-learn"> also learn from this</label>
+        </div>
+        <div class="examples">
+          <span>Try:</span>
+          <button class="chip" data-asr="ask aditya to review the sarvam kiwi service">the brief's example</button>
+          <button class="chip" data-fmt="I ate a kiwi on the flight.">a kiwi you can eat</button>
+          <button class="chip" data-fmt="Move the cursor to the end of the line.">a generic cursor</button>
+          <button class="chip" data-fmt="Aditya Ghosh approved the budget.">a different Aditya</button>
+          <button class="chip" data-fmt="The Cuban Eighties cluster is down again.">a two-word mishearing</button>
+          <button class="chip" data-fmt="The word 'kiwi' has four letters.">a word, quoted</button>
+          <button class="chip" data-fmt="Kiwi's onboarding flow is confusing.">a possessive</button>
+        </div>
+      </div>
+      <div class="pane">
+        <h2>What Kivi wrote</h2>
+        <div id="stages" class="stages empty">Run something to see the three stages.</div>
+        <div id="why"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── Teach ───────────────────────── -->
+  <section class="view" id="view-teach">
+    <div class="split">
+      <div class="pane">
+        <h2>Give Kivi an observation to learn from</h2>
+        <p class="lede">
+          Every observation returns the full learning decision, <em>including the refusals</em>.
+          Refusing to learn is most of the job.
+        </p>
+        <label>Raw ASR output</label>
+        <textarea id="ob-asr" rows="2"></textarea>
+        <label>Formatted output</label>
+        <textarea id="ob-formatted" rows="2"></textarea>
+        <label>The person's corrected version <span class="hint">the strongest evidence there is</span></label>
+        <textarea id="ob-edited" rows="2"></textarea>
+        <label>Application context</label>
+        <input id="ob-app" placeholder="Slack - #kivi-eng">
+        <div class="row"><button class="btn primary" id="btn-observe">Ingest observation</button></div>
+        <div class="examples">
+          <span>Try:</span>
+          <button class="chip ob" data-fmt="Ask Aditya to review it." data-edit="Ask Aaditya to review it.">a correction</button>
+          <button class="chip ob" data-fmt="Actually, it's spelled Aaditya.">a spelling instruction</button>
+          <button class="chip ob" data-fmt="I might call it Kivali if legal agrees.">a hypothetical</button>
+          <button class="chip ob" data-fmt="Our client is called Aaditya Labs.">a naming frame</button>
+          <button class="chip ob" data-fmt="Kshatriya reviewed the retrieval design.">one more sighting</button>
+        </div>
+      </div>
+      <div class="pane">
+        <h2>What Kivi decided</h2>
+        <div id="learned" class="stages empty">Ingest an observation to see the decision.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── Memory ───────────────────────── -->
+  <section class="view" id="view-memory">
+    <div class="split">
+      <div class="pane">
+        <div class="paneheader">
+          <h2>Memory</h2>
+          <select id="mem-filter">
+            <option value="">every status</option>
+            <option value="confirmed">confirmed — may change text</option>
+            <option value="candidate">candidate — visible, inert</option>
+            <option value="superseded">superseded</option>
+            <option value="deleted">deleted</option>
+          </select>
+        </div>
+        <div id="memlist" class="memlist">loading…</div>
+        <details class="addmem">
+          <summary>Add a word by hand</summary>
+          <label>Canonical form</label>
+          <input id="new-canonical" placeholder="Kivi">
+          <label>Type</label>
+          <select id="new-type">
+            <option>person</option><option>org</option><option selected>product</option>
+            <option>project</option><option>term</option><option>acronym</option>
+            <option>handle</option><option>place</option><option>preference</option>
+          </select>
+          <label>Known wrong forms <span class="hint">comma separated</span></label>
+          <input id="new-variants" placeholder="kiwi, kivvy">
+          <label>Note</label>
+          <input id="new-gloss" placeholder="our dictation product">
+          <button class="btn primary" id="btn-add">Add (authoritative, so confirmed)</button>
+        </details>
+      </div>
+      <div class="pane">
+        <h2>Why this memory exists</h2>
+        <div id="memdetail" class="stages empty">Select a memory to see its evidence and history.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── Learning log ───────────────────────── -->
+  <section class="view" id="view-log">
+    <p class="lede">
+      Every extraction attempt, including the ones refused. Without this record,
+      "why was this not learned" is unanswerable and memory recall cannot be measured.
+    </p>
+    <div class="row">
+      <select id="log-filter">
+        <option value="">every outcome</option>
+        <option value="rejected">rejected</option>
+        <option value="candidate">candidate</option>
+        <option value="confirmed">confirmed</option>
+        <option value="reinforced">reinforced</option>
+        <option value="superseded">superseded</option>
+      </select>
+    </div>
+    <div id="loglist" class="loglist">loading…</div>
+  </section>
+
+</main>
+
+<div id="toast" class="toast"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
